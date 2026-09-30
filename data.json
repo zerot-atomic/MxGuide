@@ -1,0 +1,112 @@
+{
+  "nombre": "MXGuide",
+  "lema": "México en tus manos",
+  "intro": "Una guía sencilla para conocer los lugares más bonitos e importantes de México. Sin complicaciones, para toda la familia.",
+  "que": "MXGuide es una aplicación para el celular que te muestra qué visitar en México. Estés donde estés, te enseña los lugares más famosos, históricos y especiales, con fotos, explicaciones claras y opiniones de otros viajeros. No es un mapa lleno de puntitos: es una guía pensada para que descubras lo que vale la pena.",
+  "descarga": {
+    "texto": "Muy pronto disponible",
+    "url": ""
+  },
+  "para": [
+    {
+      "icono": "👵",
+      "titulo": "Para todas las edades",
+      "texto": "Letras claras, pocos botones y todo en español. No necesitas saber de tecnología."
+    },
+    {
+      "icono": "👨‍👩‍👧",
+      "titulo": "Para viajar en familia",
+      "texto": "Encuentra paseos e historias que disfruten juntos abuelos, papás y niños."
+    },
+    {
+      "icono": "🎒",
+      "titulo": "Para curiosos",
+      "texto": "Si quieres conocer tu país o tu propia ciudad, aquí empiezas."
+    }
+  ],
+  "funciones": [
+    {
+      "icono": "🏛️",
+      "titulo": "Lugares importantes",
+      "texto": "Te mostramos los sitios más famosos e históricos de la zona que elijas."
+    },
+    {
+      "icono": "🔎",
+      "titulo": "Encuentra lo que te gusta",
+      "texto": "Busca por tipo de lugar (historia, naturaleza, playas, pueblos mágicos) o por estado."
+    },
+    {
+      "icono": "📸",
+      "titulo": "Fotos y opiniones",
+      "texto": "Mira fotos reales y lee lo que opinan otras personas antes de ir."
+    },
+    {
+      "icono": "⭐",
+      "titulo": "Tus favoritos",
+      "texto": "Guarda los lugares que quieres visitar para encontrarlos rápido."
+    },
+    {
+      "icono": "✅",
+      "titulo": "Lugares que ya visitaste",
+      "texto": "Marca los sitios que ya conoces y ve cuántos llevas."
+    },
+    {
+      "icono": "📍",
+      "titulo": "Aviso cuando estás cerca",
+      "texto": "Te avisamos si hay algo interesante a tu alrededor. (Muy pronto)"
+    }
+  ],
+  "pasos": [
+    "Abre la aplicación y crea tu cuenta con tu correo.",
+    "Elige el estado o la ciudad que quieres conocer.",
+    "Mira los lugares con sus fotos y una explicación fácil de leer.",
+    "Toca la estrella para guardar tus favoritos y marca los que ya visitaste."
+  ],
+  "avance": {
+    "listo": [
+      "El diseño de la aplicación y sus pantallas",
+      "El catálogo de lugares, categorías y estados",
+      "Cuentas de usuario, favoritos y opiniones"
+    ],
+    "trabajando": [
+      "Unir todas las partes en una sola aplicación",
+      "Agregar más fotos de cada lugar"
+    ],
+    "pronto": [
+      "Avisos cuando estás cerca de un lugar",
+      "Hoteles y restaurantes cercanos"
+    ]
+  },
+  "faq": [
+    {
+      "p": "¿Necesito saber de tecnología para usarla?",
+      "r": "No. La aplicación está pensada para que cualquier persona la use, con letras claras y pasos simples."
+    },
+    {
+      "p": "¿Qué lugares puedo encontrar?",
+      "r": "Sitios históricos, naturales, playas y pueblos mágicos de todo México, incluyendo las ciudades más importantes. La lista irá creciendo."
+    },
+    {
+      "p": "¿Puedo usarla si viajo con mi familia?",
+      "r": "Sí. Es una guía para todos: cada quien puede guardar sus favoritos y compartir su opinión."
+    },
+    {
+      "p": "¿Cómo pido ayuda?",
+      "r": "Llena el formulario de esta sección y tu mensaje nos llega directo por correo."
+    }
+  ],
+  "contacto": {
+    "texto": "Cuéntanos tu duda, qué lugar buscas o qué te gustaría que agreguemos. Te respondemos por correo.",
+    "correo": "mxguidecontact@gmail.com",
+    "tipos": [
+      "Necesito ayuda con la app",
+      "Busco un lugar o información",
+      "Quiero sugerir un lugar nuevo",
+      "Comentario o sugerencia",
+      "Otro"
+    ]
+  },
+  "repo": "https://github.com/JesusCorona010/mxguide",
+  "actualizado": "2026-09-29",
+  "pie": "MXGuide · México en tus manos · Proyecto escolar, UTP"
+}

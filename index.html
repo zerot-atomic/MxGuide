@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MXGuide · México en tus manos</title>
+<meta name="description" content="MXGuide: una guía sencilla para conocer los lugares más importantes de México.">
+<link rel="icon" href="assets/mxguide_icono.png">
+<style>
+:root{--bg:#F5F5F0;--card:#fff;--text:#0A1A2F;--muted:#4a6070;--red:#D32F2F;--teal:#00796B;--ochre:#D87B1E;--line:rgba(10,26,47,.14)}
+@media(prefers-color-scheme:dark){:root{--bg:#121212;--card:#1c1c1c;--text:#fff;--muted:#B0BEC5;--red:#E57373;--teal:#4DB6AC;--ochre:#FFB74D;--line:rgba(255,255,255,.16)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:112.5%}
+html.big{font-size:137.5%}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;flex-wrap:wrap;gap:10px}
+nav a{text-decoration:none;font-weight:600;margin-left:16px;font-size:.95rem}
+nav a:hover{color:var(--red)}
+.logo-l,.logo-d{height:38px}
+.logo-d{display:none}
+@media(prefers-color-scheme:dark){.logo-l{display:none}.logo-d{display:block}}
+.hero{text-align:center;padding:48px 0 56px}
+.hero img.icon{width:120px;height:120px;border-radius:26px;box-shadow:0 12px 32px rgba(0,0,0,.25)}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);margin:22px 0 8px;line-height:1.1}
+h1 span{background:linear-gradient(90deg,var(--red),var(--ochre),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:600px;margin:0 auto 28px;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-block;font-size:1.05rem;padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;margin:6px}
+.btn.p{background:var(--red);color:#fff}
+.btn.s{border:2px solid var(--teal);color:var(--teal)}
+.btn:hover{transform:translateY(-2px)}
+.badge{display:inline-block;background:var(--ochre);color:#000;font-weight:700;border-radius:999px;padding:10px 22px;margin:6px}
+section{padding:44px 0}
+h2{font-size:1.9rem;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:680px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card .ic{font-size:1.9rem}
+.card h3{margin:8px 0 4px;font-size:1.1rem}
+.card p{margin:0;color:var(--muted)}
+.card:nth-child(3n+1){border-top:4px solid var(--red)}
+.card:nth-child(3n+2){border-top:4px solid var(--teal)}
+.card:nth-child(3n){border-top:4px solid var(--ochre)}
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);flex:none;width:46px;height:46px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:1.4rem;display:grid;place-items:center}
+.step p{margin:0;font-size:1.05rem}
+.st{list-style:none;padding:0;margin:0}
+.st li{padding:8px 0 8px 30px;position:relative;border-bottom:1px solid var(--line)}
+.st li:before{position:absolute;left:0}
+.done li:before{content:"✅"}.wip li:before{content:"🛠️"}.todo li:before{content:"📋"}
+.col h3{margin:0 0 8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:10px 0 0;color:var(--muted)}
+.help{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px;text-align:center}
+.zoom{border:2px solid var(--line);background:var(--card);color:var(--text);border-radius:10px;padding:6px 12px;font-weight:800;cursor:pointer;margin-left:14px}
+.err{color:var(--red)}
+footer{text-align:center;padding:36px 0;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:40px}
+footer a{color:var(--muted)}
+.form{display:grid;gap:14px;text-align:left;max-width:560px;margin:20px auto 0}
+.form label{font-weight:700;display:grid;gap:6px}
+.form small{font-weight:400;color:var(--muted)}
+.form input,.form select,.form textarea{font:inherit;padding:12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--text);width:100%}
+.form input:focus,.form select:focus,.form textarea:focus{outline:3px solid var(--teal);border-color:var(--teal)}
+.form textarea{min-height:130px;resize:vertical}
+.form button.btn{border:0;cursor:pointer;font-family:inherit}
+.form button:disabled{opacity:.6;cursor:wait}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.msg{padding:12px 16px;border-radius:10px;font-weight:600;display:none}
+.msg.ok{display:block;background:rgba(0,121,107,.15);color:var(--teal)}
+.msg.no{display:block;background:rgba(211,47,47,.12);color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <img class="logo-l" src="assets/mxguide_logo_oscuro.png" alt="MXGuide">
+  <img class="logo-d" src="assets/mxguide_logo_blanco.png" alt="MXGuide">
+  <div><a href="#que-es">¿Qué es?</a><a href="#pasos">Cómo se usa</a><a href="#ayuda">Ayuda</a><button class="zoom" id="zoom" aria-label="Cambiar tamaño de letra">A+</button></div>
+</nav>
+<header class="hero">
+  <img class="icon" src="assets/mxguide_icono.png" alt="Ícono de MXGuide, un jaguar">
+  <h1><span id="tagline"></span></h1>
+  <p id="intro"></p>
+  <span id="descarga"></span>
+  <a class="btn s" href="#pasos">Ver cómo funciona</a>
+</header>
+<section id="que-es"><h2>¿Qué es MXGuide?</h2><p class="lead" id="que"></p>
+  <div class="grid" id="para"></div></section>
+<section id="funciones"><h2>¿Qué puedes hacer?</h2><div class="grid" id="features"></div></section>
+<section id="pasos"><h2>Así de fácil</h2><div class="steps" id="steps"></div></section>
+<section id="avance"><h2>Nuestro avance</h2><p class="lead">Estamos construyendo MXGuide paso a paso.</p>
+  <div class="grid">
+    <div class="card col"><h3>Listo</h3><ul class="st done" id="done"></ul></div>
+    <div class="card col"><h3>Trabajando en ello</h3><ul class="st wip" id="wip"></ul></div>
+    <div class="card col"><h3>Muy pronto</h3><ul class="st todo" id="todo"></ul></div>
+  </div></section>
+<section id="ayuda"><h2>Preguntas y ayuda</h2><div id="faq"></div>
+  <div class="help" style="margin-top:24px"><h3 style="margin-top:0">Escríbenos</h3><p style="color:var(--muted)" id="ayuda-txt"></p>
+  <form class="form" id="form" novalidate>
+    <label>¿Qué necesitas?<select id="tipo" name="tipo" required></select></label>
+    <label>Tu nombre<input name="nombre" autocomplete="name" required></label>
+    <label>Tu correo <small>(para poder responderte)</small><input type="email" name="email" autocomplete="email" required></label>
+    <label>Tu mensaje<textarea name="mensaje" required></textarea></label>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn p" type="submit" id="enviar">Enviar mensaje</button>
+    <div class="msg" id="msg" role="status"></div>
+  </form></div></section>
+<footer class="foot"><div id="footer"></div><p><a id="repo" href="#">Para desarrolladores: código del proyecto</a></p></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
