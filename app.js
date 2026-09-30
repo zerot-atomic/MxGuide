@@ -51,7 +51,7 @@ function iniciarFormulario(c) {
     datos._captcha = "false";
     btn.disabled = true; btn.textContent = "Enviando…";
     try {
-      const r = await fetch("https://formsubmit.co/ajax/" + encodeURIComponent(c.correo), {
+      const r = await fetch("https://formsubmit.co/ajax/" + c.correo, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(datos),
@@ -62,9 +62,34 @@ function iniciarFormulario(c) {
       msg.className = "msg ok";
       msg.textContent = "¡Gracias! Recibimos tu mensaje y te responderemos pronto.";
     } catch (err) {
+      console.error("Error al enviar:", err);
+      if (err instanceof TypeError) {
+        // Bloqueo de red/CORS: se envía como formulario normal en un iframe oculto (sin leer la respuesta).
+        enviarPorIframe(c.correo, datos);
+        form.reset();
+        msg.className = "msg ok";
+        msg.textContent = "¡Gracias! Enviamos tu mensaje. Si en unos días no te respondemos, escríbenos a " + c.correo + ".";
+        btn.disabled = false; btn.textContent = "Enviar mensaje";
+        return;
+      }
       msg.className = "msg no";
-      msg.innerHTML = `No se pudo enviar. Intenta de nuevo o escríbenos a <a href="mailto:${esc(c.correo)}">${esc(c.correo)}</a>.`;
+      msg.innerHTML = `No se pudo enviar. Intenta de nuevo o escríbenos a <a href="mailto:${esc(c.correo)}">${esc(c.correo)}</a>.<br><small>Detalle técnico: ${esc(err.message || err)}</small>`;
     }
     btn.disabled = false; btn.textContent = "Enviar mensaje";
   });
+}
+
+function enviarPorIframe(correo, datos) {
+  const nombre = "fs_" + Date.now();
+  const iframe = document.createElement("iframe");
+  iframe.name = nombre; iframe.hidden = true;
+  const f = document.createElement("form");
+  f.method = "POST"; f.action = "https://formsubmit.co/" + correo; f.target = nombre; f.hidden = true;
+  for (const [k, v] of Object.entries(datos)) {
+    const i = document.createElement("input");
+    i.type = "hidden"; i.name = k; i.value = v; f.appendChild(i);
+  }
+  document.body.append(iframe, f);
+  f.submit();
+  setTimeout(() => { iframe.remove(); f.remove(); }, 15000);
 }
