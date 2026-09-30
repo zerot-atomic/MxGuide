@@ -1,3 +1,4 @@
+console.log("MXGuide app.js v2 cargado");
 // Lee data.json y llena index.html. Para cambiar textos, solo edita data.json.
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
