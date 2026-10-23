@@ -24,6 +24,8 @@ MxGuide/
 │   └── app.js
 ├── privacy/
 │   └── index.html
+├── delete-account/
+│   └── index.html
 ├── data.json
 ├── assets/
 │   ├── mxguide_icono.png
@@ -36,7 +38,8 @@ MxGuide/
 - `index.html`: punto de entrada, secciones, navegación por anclas y formulario. Conserva los atributos de estilo puntuales existentes.
 - `css/styles.css`: reglas extraídas del bloque de estilos original, incluidas variables, media queries, estados y estilos del formulario.
 - `privacy/index.html`: estructura estática de la futura Política de Privacidad; solo muestra el estado de preparación.
-- `css/privacy.css`: ajustes exclusivos de ancho de lectura, título y encabezado de esa página.
+- `css/privacy.css`: ajustes de ancho de lectura, título y encabezado compartidos por privacidad y eliminación de cuentas.
+- `delete-account/index.html`: información provisional del procedimiento de eliminación, todavía no habilitado.
 - `js/app.js`: lógica original de la página, sin división en módulos.
 - `data.json`: textos, tarjetas, pasos, avance, preguntas frecuentes, configuración de contacto y enlaces.
 - `assets/`: icono y logotipos para temas claro y oscuro.
@@ -64,7 +67,7 @@ El script actualiza título, lema, introducción, tarjetas, listas, pasos, pregu
 
 Mantén las propiedades y tipos esperados del JSON y los identificadores HTML utilizados por el script. El JavaScript depende de elementos concretos de esta landing; no es un módulo genérico para futuras páginas.
 
-La navegación utiliza fragmentos como `#que-es`, `#pasos` y `#ayuda`. No hay enrutador. La página adicional de privacidad es un documento HTML estático independiente. Cuando la URL de descarga está vacía, se muestra el aviso de disponibilidad futura. La propiedad `actualizado` del JSON no se muestra actualmente.
+La navegación utiliza fragmentos como `#que-es`, `#pasos` y `#ayuda`. No hay enrutador. Las páginas de privacidad y eliminación de cuentas son documentos HTML estáticos independientes. Cuando la URL de descarga está vacía, se muestra el aviso de disponibilidad futura. La propiedad `actualizado` del JSON no se muestra actualmente.
 
 ## Formulario de contacto
 
@@ -78,7 +81,7 @@ Incluso una respuesta positiva del envío principal no acredita entrega final al
 
 ## Despliegue
 
-El proyecto es compatible con hosting estático: deben publicarse `index.html`, `privacy/`, `css/`, `js/`, `data.json` y `assets/`, conservando su estructura. No hay un directorio de salida generado ni compilación requerida por el código.
+El proyecto es compatible con hosting estático: deben publicarse `index.html`, `privacy/`, `delete-account/`, `css/`, `js/`, `data.json` y `assets/`, conservando su estructura. No hay un directorio de salida generado ni compilación requerida por el código.
 
 No existen `netlify.toml`, `_redirects`, `_headers` ni configuración de despliegue versionada que permita confirmar cómo está configurado Netlify. Tampoco se utilizan variables de entorno en el código inspeccionado.
 
@@ -95,7 +98,7 @@ La URL mencionada para el proyecto, `https://mx-guide.netlify.app`, no ha sido v
 ## Próximas funcionalidades (no implementadas)
 
 - Revisión, aprobación e incorporación del contenido definitivo de la Política de Privacidad a `/privacy/`; la estructura visual ya existe, pero no contiene una política definitiva ni el borrador v0.2.
-- Página pública de solicitud de eliminación de cuentas y datos asociados.
+- Activación futura del mecanismo de solicitud de eliminación: `/delete-account/` ya tiene contenido informativo provisional, pero el procedimiento no está habilitado.
 - Integración posterior de sus enlaces con la aplicación Flutter.
 - Revisión del mecanismo operativo de eliminación: identidad, recepción verificable, responsables, seguimiento, ejecución en backend y tratamiento de datos relacionados y retenciones.
 
@@ -109,4 +112,18 @@ Reutiliza `../css/styles.css` para colores, tipografía, tema y elementos comune
 
 Para probarla, inicia el servidor HTTP local descrito arriba desde la raíz y abre `http://127.0.0.1:8000/`. Sigue el enlace del pie y regresa al inicio. También abre directamente `http://127.0.0.1:8000/privacy/` y recarga esa dirección: un servidor estático con resolución de `index.html` por directorio debe servirla sin enrutador ni reescrituras especiales. Comprueba CSS e imágenes, escritorio y móvil, tema claro/oscuro y navegación por teclado. No envíes formularios.
 
-La configuración efectiva de Netlify sigue sin verificarse y no se modificó. La revisión y aprobación del contenido definitivo siguen pendientes antes de publicar la política. No existe todavía una página de eliminación de cuentas.
+La configuración efectiva de Netlify sigue sin verificarse y no se modificó. La revisión y aprobación del contenido definitivo siguen pendientes antes de publicar la política. La Etapa 3A incorpora `/delete-account/` como página informativa provisional; no activa solicitudes ni eliminación de datos.
+
+## Solicitud de eliminación de cuenta — Etapa 3A
+
+`/delete-account/` corresponde a `delete-account/index.html`. Su estado visible es **Procedimiento en preparación**. Explica el procedimiento propuesto, los datos previstos (cuenta, autenticación asociada, favoritos y reseñas cuando existan), la futura comprobación de titularidad y las decisiones de conservación pendientes.
+
+Muestra `mxguidecontact@gmail.com` únicamente como correo general de contacto, sin enlace de envío, formulario, botón de solicitud o automatización. La página no habilita solicitudes reales ni elimina información. No solicita contraseñas, tokens de sesión o documentos de identidad, ni promete plazos o eliminación de logs y copias de seguridad.
+
+Reutiliza `css/styles.css` y `css/privacy.css`, sin CSS adicional ni JavaScript. La landing enlaza mediante `delete-account/`, privacidad mediante `../delete-account/`, y la nueva página permite regresar a la raíz y consultar `../privacy/`. El contenido provisional de privacidad permanece intacto; solo se añade navegación en su pie.
+
+Antes de activar el canal, el equipo debe implementar y verificar la eliminación efectiva en NestJS, definir titularidad, alcance, excepciones de conservación, responsables y seguimiento. Después deberá proporcionar acceso al mecanismo desde Flutter. Estos trabajos están pendientes y fuera de esta etapa.
+
+Para probar localmente, sirve la raíz como se describe arriba, abre `/delete-account/` directamente y recarga. Recorre los enlaces entre inicio, privacidad y eliminación. Revisa escritorio, móvil, temas claro/oscuro y teclado sin enviar consultas reales. El HTML es estático y utiliza `index.html` por directorio; no necesita compilación ni un enrutador. La publicación efectiva y configuración de Netlify no se han comprobado.
+
+Validación de esta etapa: comprobaciones estáticas de estructura HTML, rutas, navegación y conservación de formulario, JavaScript, JSON y CSS. La comprobación visual en navegador queda pendiente; no se afirma una validación visual ni del hosting publicado.

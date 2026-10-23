@@ -1,5 +1,28 @@
 # Registro de cambios
 
+## 2026-10-23 — Etapa 3A: página informativa de eliminación de cuenta
+
+### Archivos creados
+
+- `delete-account/index.html`: página HTML5 en español, estado «Procedimiento en preparación», procedimiento propuesto, datos previstos, verificación pendiente y correo general `mxguidecontact@gmail.com`.
+
+### Archivos modificados
+
+- `index.html`: enlace «Eliminar mi cuenta» a `delete-account/` en el pie.
+- `privacy/index.html`: enlace a `../delete-account/` en el pie, sin cambiar su contenido provisional.
+- `README.md`: estructura, ruta, alcance provisional, navegación, pruebas y dependencias pendientes.
+- `CHANGELOG.md`: registro de la etapa.
+
+### Conservado y pendiente
+
+- Reutilización de `css/styles.css` y `css/privacy.css` sin cambios; no se agregan dependencias, CSS ni JavaScript.
+- Formulario general, FormSubmit, mensajes, validaciones, `js/app.js` y `data.json` intactos.
+- No hay formularios nuevos, enlaces de envío de solicitudes ni automatizaciones. El correo se muestra como contacto general.
+- La eliminación efectiva y su verificación en NestJS, el procedimiento de titularidad, alcance, excepciones, responsables y seguimiento siguen pendientes. También falta el acceso desde Flutter.
+- Sin promesas de eliminación inmediata o definitiva de registros operativos, logs o copias de seguridad.
+- Validaciones estáticas de HTML, recursos y navegación; comprobación visual y hosting publicado pendientes. No se enviaron formularios.
+- Sin despliegues, commits, push ni cambios de rama.
+
 ## 2026-10-23 — Etapa 2D: estructura de la página de privacidad
 
 ### Archivos creados
