@@ -18,9 +18,12 @@ No hay frameworks, gestor de paquetes declarado, dependencias instalables, proce
 MxGuide/
 ├── index.html
 ├── css/
-│   └── styles.css
+│   ├── styles.css
+│   └── privacy.css
 ├── js/
 │   └── app.js
+├── privacy/
+│   └── index.html
 ├── data.json
 ├── assets/
 │   ├── mxguide_icono.png
@@ -32,6 +35,8 @@ MxGuide/
 
 - `index.html`: punto de entrada, secciones, navegación por anclas y formulario. Conserva los atributos de estilo puntuales existentes.
 - `css/styles.css`: reglas extraídas del bloque de estilos original, incluidas variables, media queries, estados y estilos del formulario.
+- `privacy/index.html`: estructura estática de la futura Política de Privacidad; solo muestra el estado de preparación.
+- `css/privacy.css`: ajustes exclusivos de ancho de lectura, título y encabezado de esa página.
 - `js/app.js`: lógica original de la página, sin división en módulos.
 - `data.json`: textos, tarjetas, pasos, avance, preguntas frecuentes, configuración de contacto y enlaces.
 - `assets/`: icono y logotipos para temas claro y oscuro.
@@ -59,7 +64,7 @@ El script actualiza título, lema, introducción, tarjetas, listas, pasos, pregu
 
 Mantén las propiedades y tipos esperados del JSON y los identificadores HTML utilizados por el script. El JavaScript depende de elementos concretos de esta landing; no es un módulo genérico para futuras páginas.
 
-La navegación utiliza fragmentos como `#que-es`, `#pasos` y `#ayuda`. No hay enrutador ni páginas adicionales. Cuando la URL de descarga está vacía, se muestra el aviso de disponibilidad futura. La propiedad `actualizado` del JSON no se muestra actualmente.
+La navegación utiliza fragmentos como `#que-es`, `#pasos` y `#ayuda`. No hay enrutador. La página adicional de privacidad es un documento HTML estático independiente. Cuando la URL de descarga está vacía, se muestra el aviso de disponibilidad futura. La propiedad `actualizado` del JSON no se muestra actualmente.
 
 ## Formulario de contacto
 
@@ -73,7 +78,7 @@ Incluso una respuesta positiva del envío principal no acredita entrega final al
 
 ## Despliegue
 
-El proyecto es compatible con hosting estático: deben publicarse `index.html`, `css/`, `js/`, `data.json` y `assets/`, conservando su estructura. No hay un directorio de salida generado ni compilación requerida por el código.
+El proyecto es compatible con hosting estático: deben publicarse `index.html`, `privacy/`, `css/`, `js/`, `data.json` y `assets/`, conservando su estructura. No hay un directorio de salida generado ni compilación requerida por el código.
 
 No existen `netlify.toml`, `_redirects`, `_headers` ni configuración de despliegue versionada que permita confirmar cómo está configurado Netlify. Tampoco se utilizan variables de entorno en el código inspeccionado.
 
@@ -89,9 +94,19 @@ La URL mencionada para el proyecto, `https://mx-guide.netlify.app`, no ha sido v
 
 ## Próximas funcionalidades (no implementadas)
 
-- Página pública de Política de Privacidad en HTML independiente; no se incorporará al JSON de contenido promocional.
+- Revisión, aprobación e incorporación del contenido definitivo de la Política de Privacidad a `/privacy/`; la estructura visual ya existe, pero no contiene una política definitiva ni el borrador v0.2.
 - Página pública de solicitud de eliminación de cuentas y datos asociados.
 - Integración posterior de sus enlaces con la aplicación Flutter.
 - Revisión del mecanismo operativo de eliminación: identidad, recepción verificable, responsables, seguimiento, ejecución en backend y tratamiento de datos relacionados y retenciones.
 
-Esta reorganización no agrega páginas legales, formularios de eliminación, endpoints ni nuevas funcionalidades.
+La Etapa 1 reorganizó los archivos. La Etapa 2D agrega únicamente la estructura provisional de privacidad y su enlace; no implementa formularios de eliminación ni endpoints.
+
+## Página de privacidad — Etapa 2D
+
+La ruta `/privacy/` corresponde a `privacy/index.html`. El pie de la landing enlaza a `privacy/`; desde la página se regresa al inicio mediante `../`. Su único contenido documental es el título, el estado «Documento en preparación» y el mensaje informativo de preparación. No constituye una Política de Privacidad definitiva ni una declaración de cumplimiento con Google Play.
+
+Reutiliza `../css/styles.css` para colores, tipografía, tema y elementos comunes, y `../css/privacy.css` para el ancho de lectura y los ajustes específicos. Las imágenes utilizan rutas `../assets/`. No importa `js/app.js`, no solicita `data.json` y funciona sin JavaScript. El borrador v0.2 permanece fuera del repositorio y pendiente de aprobación, según el contexto del equipo; no se ha incorporado su contenido.
+
+Para probarla, inicia el servidor HTTP local descrito arriba desde la raíz y abre `http://127.0.0.1:8000/`. Sigue el enlace del pie y regresa al inicio. También abre directamente `http://127.0.0.1:8000/privacy/` y recarga esa dirección: un servidor estático con resolución de `index.html` por directorio debe servirla sin enrutador ni reescrituras especiales. Comprueba CSS e imágenes, escritorio y móvil, tema claro/oscuro y navegación por teclado. No envíes formularios.
+
+La configuración efectiva de Netlify sigue sin verificarse y no se modificó. La revisión y aprobación del contenido definitivo siguen pendientes antes de publicar la política. No existe todavía una página de eliminación de cuentas.

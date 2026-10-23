@@ -1,5 +1,26 @@
 # Registro de cambios
 
+## 2026-10-23 — Etapa 2D: estructura de la página de privacidad
+
+### Archivos creados
+
+- `privacy/index.html`: documento HTML5 en español, encabezado de marca, enlace al inicio, área semántica de lectura y pie consistente con el sitio.
+- `css/privacy.css`: ajustes exclusivos para el documento, reutilizando los estilos generales sin modificarlos.
+
+### Archivos modificados
+
+- `index.html`: enlace «Política de Privacidad» a `privacy/` en el pie; se conservan los demás enlaces y secciones.
+- `README.md`: estructura actualizada, propósito y estado de `/privacy/`, estilos y pruebas locales.
+- `CHANGELOG.md`: registro de esta etapa.
+
+### Alcance y pendientes
+
+- La página muestra únicamente el título solicitado, «Documento en preparación» y el mensaje informativo aprobado para esta etapa.
+- No se incorpora el borrador legal v0.2 ni se inventan datos jurídicos. El contenido definitivo requiere revisión y aprobación.
+- No carga JavaScript ni introduce dependencias, formularios o rutas de eliminación de cuentas.
+- Se conservan `data.json`, `js/app.js`, FormSubmit, imágenes y estilos generales.
+- Sin cambios de configuración de hosting, despliegues, commits ni push. La validación visual en navegador y la comprobación del hosting real quedan pendientes.
+
 ## 2026-10-23 — Etapa 1: refactorización conservadora y documentación
 
 ### Archivos creados
