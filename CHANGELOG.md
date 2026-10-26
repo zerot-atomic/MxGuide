@@ -1,5 +1,17 @@
 # Registro de cambios
 
+## 2026-10-26 — Etapa 2E: integración de la Política de Privacidad
+
+- `privacy/index.html`: sustitución del aviso provisional por el fragmento completo autorizado de `privacy/privacidad.html`, versión 1.0, actualizado el 26 de octubre de 2026. Se conserva el contenido y los enlaces; se añade `privacy-title` al h1 y se actualiza la descripción de la página.
+- `css/privacy.css`: presentación acotada a `.politica-privacidad` para índice, listas, subtítulos, separación de secciones y foco de enlaces; conserva el diseño de eliminación de cuentas y los estilos generales.
+- `README.md`: estado actual, fuente, versión, presentación y aspectos pendientes de revisión.
+- `CHANGELOG.md`: registro de esta integración; no se crean archivos de producción adicionales.
+- Fuentes previas `privacy/privacidad.html` y `privacy-policy-v0.2.md` conservadas sin cambios. El Markdown v0.2 no se utilizó para el contenido legal.
+- Contradicción sin corregir: el apartado 9 presenta solicitudes y eliminación operativas mientras `/delete-account/` mantiene el procedimiento en preparación. También se documentan identidad legal/domicilio no especificados, diferencia de audiencia con la landing y afirmaciones técnicas por validar.
+- Validaciones estáticas: comparación íntegra del fragmento (salvo el ID del título), 13 apartados, jerarquía de encabezados, etiquetas e IDs, anclas y recursos locales; verificación de archivos fuera de alcance y `git diff --check`.
+- Pendientes: revisión visual, desbordamiento en móvil/escritorio, prueba de enlaces externos y hosting efectivo. No se certifica aprobación jurídica ni cumplimiento normativo.
+- Sin cambios en landing, eliminación, JavaScript, JSON, FormSubmit, backend o Flutter. Sin dependencias, commits, push ni despliegues.
+
 ## 2026-10-23 — Etapa 3A: página informativa de eliminación de cuenta
 
 ### Archivos creados
