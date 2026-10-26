@@ -1,0 +1,19 @@
+/* Ajustes exclusivos de la página de privacidad; la identidad visual es compartida. */
+nav a.privacy-brand{margin-left:0}
+.privacy-brand img{max-width:100%;height:auto;max-height:38px}
+.privacy-document{max-width:72ch;margin:0 auto;padding:36px 0 48px;overflow-wrap:anywhere}
+.privacy-document h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.2;margin:0 0 24px}
+.privacy-document p{margin:0 0 24px}
+.privacy-status{color:var(--teal)}
+
+/* Presentación del documento integrado; acotada para conservar la otra página. */
+.politica-privacidad nav{display:block;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:32px}
+.politica-privacidad nav a{margin-left:0;font-size:inherit;font-weight:400;text-decoration:underline}
+.politica-privacidad ol,.politica-privacidad ul{padding-left:1.5em;margin:0 0 24px}
+.politica-privacidad nav ol{margin:0}
+.politica-privacidad li+li{margin-top:8px}
+.politica-privacidad section{padding:24px 0;scroll-margin-top:24px}
+.politica-privacidad h2{font-size:clamp(1.4rem,4vw,1.9rem);line-height:1.3;margin:0 0 20px}
+.politica-privacidad h3{font-size:1.15rem;line-height:1.4;margin:24px 0 12px}
+.politica-privacidad .pp-meta{color:var(--muted)}
+.politica-privacidad a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
