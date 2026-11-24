@@ -25,7 +25,7 @@ MxGuide/
 ├── privacy/
 │   └── index.html
 ├── delete-account/
-│   └── index.html
+│   └── eliminacion_cuenta.html
 ├── data.json
 ├── assets/
 │   ├── mxguide_icono.png
@@ -37,9 +37,9 @@ MxGuide/
 
 - `index.html`: punto de entrada, secciones, navegación por anclas y formulario. Conserva los atributos de estilo puntuales existentes.
 - `css/styles.css`: reglas extraídas del bloque de estilos original, incluidas variables, media queries, estados y estilos del formulario.
-- `privacy/index.html`: Política de Privacidad v1.0 integrada desde la fuente autorizada `privacy/privacidad.html`, con fecha 26 de octubre de 2026.
+- `privacy/index.html`: Política de Privacidad v1.4, actualizada el 24 de noviembre de 2026.
 - `css/privacy.css`: ajustes de ancho de lectura, título y encabezado compartidos por privacidad y eliminación de cuentas.
-- `delete-account/index.html`: información provisional del procedimiento de eliminación, todavía no habilitado.
+- `delete-account/eliminacion_cuenta.html`: página actualizada con el procedimiento de eliminación de cuenta.
 - `js/app.js`: lógica original de la página, sin división en módulos.
 - `data.json`: textos, tarjetas, pasos, avance, preguntas frecuentes, configuración de contacto y enlaces.
 - `assets/`: icono y logotipos para temas claro y oscuro.
@@ -97,8 +97,8 @@ La URL mencionada para el proyecto, `https://mx-guide.netlify.app`, no ha sido v
 
 ## Próximas funcionalidades (no implementadas)
 
-- Revisión del documento de privacidad v1.0 ya integrado en `/privacy/`, sus afirmaciones técnicas y la contradicción con el procedimiento de eliminación todavía no habilitado. La integración no acredita aprobación jurídica ni publicación.
-- Activación futura del mecanismo de solicitud de eliminación: `/delete-account/` ya tiene contenido informativo provisional, pero el procedimiento no está habilitado.
+- Revisión del documento de privacidad integrado en `/privacy/` y sus afirmaciones técnicas. La integración no acredita aprobación jurídica ni publicación.
+- Verificación del mecanismo de solicitud de eliminación descrito en `/delete-account/eliminacion_cuenta.html`, incluyendo su recepción y ejecución efectiva.
 - Integración posterior de sus enlaces con la aplicación Flutter.
 - Revisión del mecanismo operativo de eliminación: identidad, recepción verificable, responsables, seguimiento, ejecución en backend y tratamiento de datos relacionados y retenciones.
 
@@ -106,35 +106,33 @@ La Etapa 1 reorganizó los archivos. La Etapa 2D agrega únicamente la estructur
 
 ## Página de privacidad — Etapas 2D y 2E
 
-La ruta `/privacy/` corresponde a `privacy/index.html`. El pie de la landing enlaza a `privacy/`; desde la página se regresa al inicio mediante `../`. La Etapa 2E sustituye el contenido provisional por los 13 apartados completos de la fuente autorizada `privacy/privacidad.html`: versión 1.0, última actualización 26 de octubre de 2026. Se conservan textos, listas, enlaces, fechas y denominaciones; únicamente se añade un identificador al título para el etiquetado accesible del área principal. No se declara aprobación jurídica ni cumplimiento normativo garantizado.
+La ruta `/privacy/` corresponde a `privacy/index.html` y está enlazada desde el pie de la landing. Desde la página se regresa al inicio mediante `../`. El documento vigente es la Política de Privacidad v1.4, actualizada el 24 de noviembre de 2026. No se declara aprobación jurídica ni cumplimiento normativo garantizado.
 
-Reutiliza `../css/styles.css` para colores, tipografía, tema y elementos comunes, y `../css/privacy.css` para el ancho de lectura y los ajustes específicos. Las imágenes utilizan rutas `../assets/`. No importa `js/app.js`, no solicita `data.json` y funciona sin JavaScript. El archivo previo `privacy-policy-v0.2.md` se conserva sin cambios y no se utiliza como fuente. La fuente HTML v1.0 también permanece intacta. Los estilos añadidos para índice, listas, secciones y subtítulos están acotados a `.politica-privacidad` para no alterar `/delete-account/`.
+Reutiliza `../css/styles.css` para colores, tipografía, tema y elementos comunes, y `../css/privacy.css` para el ancho de lectura y los ajustes específicos. Las imágenes utilizan rutas `../assets/`. No importa `js/app.js`, no solicita `data.json` y funciona sin JavaScript. El archivo fuente HTML anterior se eliminó tras integrar su contenido en `privacy/index.html`, evitando conservar una copia desactualizada.
 
 Para probarla, inicia el servidor HTTP local descrito arriba desde la raíz y abre `http://127.0.0.1:8000/`. Sigue el enlace del pie y regresa al inicio. También abre directamente `http://127.0.0.1:8000/privacy/` y recarga esa dirección: un servidor estático con resolución de `index.html` por directorio debe servirla sin enrutador ni reescrituras especiales. Comprueba CSS e imágenes, escritorio y móvil, tema claro/oscuro y navegación por teclado. No envíes formularios.
 
-La configuración efectiva de Netlify sigue sin verificarse y no se modificó. La revisión y aprobación del contenido definitivo siguen pendientes antes de publicar la política. La Etapa 3A incorpora `/delete-account/` como página informativa provisional; no activa solicitudes ni eliminación de datos.
+La configuración efectiva de Netlify sigue sin verificarse y no se modificó. La revisión y aprobación del contenido definitivo siguen pendientes antes de publicar la política. La Etapa 3A incorporó una página informativa provisional en `/delete-account/`; posteriormente fue reemplazada por `/delete-account/eliminacion_cuenta.html`.
 
 ## Solicitud de eliminación de cuenta — Etapa 3A
 
-`/delete-account/` corresponde a `delete-account/index.html`. Su estado visible es **Procedimiento en preparación**. Explica el procedimiento propuesto, los datos previstos (cuenta, autenticación asociada, favoritos y reseñas cuando existan), la futura comprobación de titularidad y las decisiones de conservación pendientes.
+La página actualizada está en `/delete-account/eliminacion_cuenta.html`; los enlaces de la landing y de privacidad apuntan directamente a ella. No se conserva un `index.html` ni una ruta `/delete-account/` separada. La página explica cómo solicitar la eliminación, los datos que se eliminan o pueden conservarse y el plazo de respuesta indicado.
 
-Muestra `mxguidecontact@gmail.com` únicamente como correo general de contacto, sin enlace de envío, formulario, botón de solicitud o automatización. La página no habilita solicitudes reales ni elimina información. No solicita contraseñas, tokens de sesión o documentos de identidad, ni promete plazos o eliminación de logs y copias de seguridad.
-
-Reutiliza `css/styles.css` y `css/privacy.css`, sin CSS adicional ni JavaScript. La landing enlaza mediante `delete-account/`, privacidad mediante `../delete-account/`, y la nueva página permite regresar a la raíz y consultar `../privacy/`. En la Etapa 3A solo se añadió navegación al pie de privacidad; posteriormente, la Etapa 2E sustituyó su contenido provisional por la fuente v1.0.
+La página actualizada reutiliza `css/styles.css` y `css/privacy.css`, sin JavaScript. Permite regresar a la raíz y consultar `../privacy/`.
 
 Antes de activar el canal, el equipo debe implementar y verificar la eliminación efectiva en NestJS, definir titularidad, alcance, excepciones de conservación, responsables y seguimiento. Después deberá proporcionar acceso al mecanismo desde Flutter. Estos trabajos están pendientes y fuera de esta etapa.
 
-Para probar localmente, sirve la raíz como se describe arriba, abre `/delete-account/` directamente y recarga. Recorre los enlaces entre inicio, privacidad y eliminación. Revisa escritorio, móvil, temas claro/oscuro y teclado sin enviar consultas reales. El HTML es estático y utiliza `index.html` por directorio; no necesita compilación ni un enrutador. La publicación efectiva y configuración de Netlify no se han comprobado.
+Para probar localmente, sirve la raíz como se describe arriba, abre `/delete-account/eliminacion_cuenta.html` directamente y recarga. Recorre los enlaces entre inicio, privacidad y eliminación. Revisa escritorio, móvil, temas claro/oscuro y teclado. El HTML es estático y no necesita compilación ni un enrutador. La publicación efectiva y configuración de Netlify no se han comprobado.
 
 Validación de esta etapa: comprobaciones estáticas de estructura HTML, rutas, navegación y conservación de formulario, JavaScript, JSON y CSS. La comprobación visual en navegador queda pendiente; no se afirma una validación visual ni del hosting publicado.
 
 ## Integración de privacidad — Etapa 2E (2026-10-26)
 
-La fuente autorizada por el equipo es `privacy/privacidad.html`. Se integra como fragmento en el documento existente, sin anidar documentos HTML ni cargar JavaScript. Se mantienen encabezado, logotipos, regreso al inicio y enlace del pie a eliminación. No se modifica la landing, el formulario, FormSubmit, `data.json` ni la página de eliminación.
+La fuente HTML autorizada se integró como fragmento en el documento existente, sin anidar documentos HTML ni cargar JavaScript; posteriormente se eliminó la copia fuente, ya que el contenido integrado se conserva en `privacy/index.html`. Se mantienen encabezado, logotipos, regreso al inicio y enlace del pie a eliminación. No se modifica la landing, el formulario, FormSubmit, `data.json` ni la página de eliminación.
 
 ### Aspectos pendientes de revisión
 
-- **Contradicción conservada:** el apartado 9 de la política describe solicitudes por correo o formulario y eliminación posterior como operativas; `/delete-account/` señala «Procedimiento en preparación» y que el canal no está habilitado. El equipo debe resolver la discrepancia y comprobar la operación del backend antes de publicar. No se corrigió ninguna de las dos páginas por iniciativa técnica.
+- La política y `/delete-account/eliminacion_cuenta.html` describen la solicitud de eliminación. El equipo debe comprobar que el canal de contacto y la ejecución del backend operan como se indica antes de publicar; el contenido de estas páginas no acredita por sí solo esa operación.
 - El documento identifica a «Equipo de Desarrollo MXGuide» como responsable, pero no especifica identidad legal ni domicilio. Se conserva como fue entregado; corresponde al equipo revisar esos datos.
 - La política indica una audiencia de 18 años o más, mientras la landing promociona uso para todas las edades y familias. Se conserva la diferencia para revisión del equipo.
 - Las afirmaciones sobre ubicación, hash, JWT, HTTPS, proveedores, retención, respuesta y eliminación requieren contraste con la aplicación y operación reales; esta integración no las certifica.

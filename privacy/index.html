@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Política de Privacidad de MXGuide</title>
-  <meta name="description" content="Política de Privacidad de MXGuide. Versión 1.0, actualizada el 26 de octubre de 2026.">
+  <meta name="description" content="Política de Privacidad de MXGuide. Versión 1.4, actualizada el 24 de noviembre de 2026.">
   <link rel="icon" href="../assets/mxguide_icono.png">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/privacy.css">
@@ -27,8 +27,8 @@
   <h1 id="privacy-title">Política de Privacidad de MXGuide</h1>
 
   <p class="pp-meta">
-    <strong>Versión:</strong> 1.3<br>
-    <strong>Última actualización:</strong> 26 de octubre de 2026
+    <strong>Versión:</strong> 1.4<br>
+    <strong>Última actualización:</strong> 24 de noviembre de 2026
   </p>
 
   <p>
@@ -60,8 +60,8 @@
     <h2>1. Introducción</h2>
     <p>
       MXGuide es una aplicación móvil de guía turística de México, desarrollada inicialmente como proyecto académico,
-      que permite explorar lugares turísticos, consultar información geográfica y cultural, utilizar mapas interactivos
-      y guardar destinos favoritos.
+      que permite explorar lugares turísticos, consultar información geográfica y cultural, utilizar mapas interactivos,
+      trazar rutas, guardar destinos favoritos, calificar y reseñar lugares, y obtener insignias por los estados visitados.
     </p>
     <p>
       El Equipo de Desarrollo MXGuide (en adelante, “MXGuide” o “el Equipo”) es responsable del tratamiento de los datos
@@ -86,40 +86,88 @@
       Las contraseñas se procesan mediante hash antes de almacenarse en el servidor, por lo que no se guardan en texto
       legible. Para mantener la sesión se utilizan identificadores internos y tokens de autenticación.
     </p>
+    <p>
+      Como alternativa, la persona usuaria puede iniciar sesión con su cuenta de Google. En ese caso, Google comparte con
+      MXGuide, mediante un token de identidad, el nombre, el correo electrónico y un identificador de la cuenta de Google.
+      MXGuide no recibe ni almacena la contraseña de la cuenta de Google.
+    </p>
+    <p>
+      Si la persona usuaria olvida su contraseña, MXGuide trata su correo electrónico y un código temporal de verificación,
+      con vigencia limitada, para permitirle restablecerla. Los códigos dejan de ser válidos al usarse o al vencer.
+    </p>
 
-    <h3>2.2 Información de la cuenta y favoritos</h3>
+    <h3>2.2 Información de la cuenta, favoritos y reseñas</h3>
     <p>
       MXGuide almacena la información de la cuenta: identificador, nombre, correo electrónico, rol y fecha de creación.
       Cuando la persona usuaria guarda lugares turísticos como favoritos, estos quedan asociados a su cuenta para que
       pueda consultarlos y administrarlos.
     </p>
-
-    <h3>2.3 Ubicación geográfica</h3>
     <p>
-      El uso de la ubicación del dispositivo es opcional y requiere el permiso correspondiente de Android. Cuando se
-      concede, la ubicación se utiliza para mostrar la posición de la persona usuaria en el mapa y calcular distancias
-      aproximadas respecto de los destinos turísticos.
+      Cuando la persona usuaria califica un lugar o escribe una reseña, MXGuide almacena el lugar, la calificación de 1 a 5
+      estrellas, el comentario opcional (de hasta 500 caracteres) y la fecha, asociados a su cuenta. Las reseñas son
+      visibles para otras personas usuarias en la ficha del lugar, junto con el nombre que la persona tiene registrado
+      en su cuenta, por lo que no deben incluir datos personales ni información sensible.
+    </p>
+
+    <h3>2.3 Progreso del viajero y almacenamiento local</h3>
+    <p>
+      La aplicación calcula un rango de viajero y otorga insignias según los estados y lugares que la persona usuaria
+      marca como visitados. Esta información de progreso se guarda en el propio dispositivo.
     </p>
     <p>
-      MXGuide no almacena la ubicación de las personas usuarias en sus servidores ni conserva un historial de ubicaciones.
+      La aplicación también guarda en el dispositivo la sesión iniciada, la preferencia de tema (claro u oscuro), los
+      ajustes de avisos y del botón del asistente, y los elementos guardados desde la pantalla de agregar. Estos datos pueden eliminarse cerrando sesión, borrando los datos de la aplicación o
+      desinstalándola.
+    </p>
+
+    <h3>2.4 Ubicación geográfica</h3>
+    <p>
+      El uso de la ubicación del dispositivo es opcional y requiere el permiso correspondiente de Android. Cuando se
+      concede, la ubicación se utiliza para mostrar la posición de la persona usuaria en el mapa, calcular distancias
+      aproximadas respecto de los destinos turísticos y, si la persona activa el “Aviso de lugares cercanos”, detectar
+      cuándo se encuentra cerca de un destino del catálogo. Este aviso funciona únicamente mientras la aplicación está
+      abierta: MXGuide no solicita acceso a la ubicación en segundo plano.
+    </p>
+    <p>
+      La comparación entre la posición del dispositivo y los destinos del catálogo para el mapa y los avisos se realiza en
+      el propio dispositivo. MXGuide no almacena la ubicación de las personas usuarias en sus servidores ni conserva un
+      historial de ubicaciones. La única excepción es el uso del asistente Mictlan, descrito en la sección 2.5.
     </p>
     <p>
       La visualización del mapa se realiza mediante Google Maps, cuyo uso puede implicar tratamiento adicional de datos
       geográficos y técnicos por parte de Google, conforme a su propia política de privacidad.
     </p>
     <p>
+      Cuando la persona usuaria solicita una ruta dentro de la aplicación, las coordenadas del punto de origen y del
+      destino se envían al servicio de rutas de OpenStreetMap para calcular el camino. Estas coordenadas no se asocian a
+      la cuenta de la persona usuaria por parte de MXGuide.
+    </p>
+    <p>
       La persona usuaria puede denegar o revocar el permiso en cualquier momento desde la configuración de su dispositivo
       y continuar utilizando las funcionalidades que no requieren ubicación.
     </p>
 
-    <h3>2.4 Información técnica</h3>
+    <h3>2.5 Asistente Mictlan</h3>
+    <p>
+      La aplicación incluye un asistente virtual llamado Mictlan. Cuando la persona usuaria le escribe, la aplicación envía
+      al servicio del asistente el texto del mensaje, los mensajes más recientes de la conversación (hasta 12) para dar
+      contexto, el primer nombre de la persona usuaria si inició sesión y, si concedió el permiso de ubicación, su
+      posición aproximada para recomendar lugares cercanos. Si la ubicación no está disponible o el permiso no se
+      concedió, no se envía.
+    </p>
+    <p>
+      La conversación se muestra en la aplicación mientras está abierta y no se guarda en el dispositivo. Se recomienda no
+      incluir en los mensajes datos personales ni información sensible.
+    </p>
+
+    <h3>2.6 Información técnica</h3>
     <p>
       Al comunicarse con los servidores y servicios tecnológicos, pueden generarse direcciones IP, información de las
       solicitudes y registros técnicos. Esta información se utiliza para la operación, la seguridad y el diagnóstico del
       servicio, y no se emplea con fines publicitarios.
     </p>
 
-    <h3>2.5 Sitio web de soporte</h3>
+    <h3>2.7 Sitio web de soporte</h3>
     <p>
       Cuando una persona utiliza voluntariamente el formulario de contacto, se solicitan nombre, correo electrónico, tipo
       de consulta y mensaje. Esta información se utiliza únicamente para atender la comunicación recibida.
@@ -134,10 +182,15 @@
     <h2>3. Finalidades</h2>
     <p>Los datos personales se utilizan, según corresponda, para:</p>
     <ul>
-      <li>Registrar y autenticar cuentas.</li>
+      <li>Registrar y autenticar cuentas, incluido el inicio de sesión con Google.</li>
       <li>Mantener sesiones de usuario.</li>
+      <li>Permitir la recuperación de la contraseña de la cuenta.</li>
       <li>Guardar y consultar lugares favoritos.</li>
-      <li>Facilitar la exploración turística y el uso del mapa.</li>
+      <li>Mostrar y administrar calificaciones y reseñas.</li>
+      <li>Calcular el rango de viajero y las insignias por estado visitado.</li>
+      <li>Facilitar la exploración turística, el uso del mapa y el trazado de rutas.</li>
+      <li>Enviar avisos de lugares cercanos mientras la aplicación está abierta, únicamente si la persona usuaria los activa.</li>
+      <li>Responder consultas y recomendar lugares cercanos mediante el asistente Mictlan.</li>
       <li>Mostrar información y recursos gráficos de los destinos.</li>
       <li>Atender consultas de soporte y de privacidad.</li>
       <li>Mantener la seguridad y el funcionamiento de la plataforma.</li>
@@ -166,10 +219,16 @@
     <ul>
       <li>
         <strong>Ubicación precisa o aproximada:</strong> se utiliza de forma opcional para mostrar la posición de la
-        persona usuaria en el mapa y calcular distancias.
+        persona usuaria en el mapa, calcular distancias, trazar rutas y, si se activa, enviar avisos de lugares cercanos.
       </li>
       <li>
-        <strong>Internet:</strong> necesario para consultar el catálogo, autenticar cuentas y acceder a mapas e imágenes.
+        <strong>Notificaciones:</strong> en las versiones de Android que lo requieren, se solicita de forma opcional para
+        mostrar el “Aviso de lugares cercanos”. Si se deniega, la aplicación sigue funcionando y el aviso permanece
+        desactivado. Los avisos se generan solo mientras la aplicación está abierta.
+      </li>
+      <li>
+        <strong>Internet:</strong> necesario para consultar el catálogo, autenticar cuentas, publicar reseñas y acceder a
+        mapas, rutas e imágenes.
       </li>
     </ul>
   </section>
@@ -179,14 +238,32 @@
     <p>MXGuide utiliza los siguientes servicios tecnológicos:</p>
     <ul>
       <li><strong>Google Maps:</strong> visualización cartográfica y funcionalidades de ubicación.</li>
+      <li>
+        <strong>Google Sign-In:</strong> inicio de sesión opcional con una cuenta de Google, conforme a la política de
+        privacidad de Google.
+      </li>
       <li><strong>Google Fonts:</strong> obtención de recursos tipográficos cuando resulta necesario.</li>
       <li>
-        <strong>Render:</strong> alojamiento del servidor (API) de MXGuide, que gestiona cuentas, autenticación, catálogo
-        y favoritos.
+        <strong>OpenStreetMap (servicio de rutas OSRM):</strong> cálculo de rutas dentro de la aplicación a partir de las
+        coordenadas de origen y destino.
       </li>
       <li>
-        <strong>Base de datos PostgreSQL:</strong> almacenamiento de cuentas, favoritos y catálogo, en infraestructura de
-        nube utilizada por el servidor.
+        <strong>Render:</strong> alojamiento del servidor (API) de MXGuide, que gestiona cuentas, autenticación, catálogo,
+        favoritos y reseñas, y del servicio del asistente Mictlan, que es un servicio independiente.
+      </li>
+      <li>
+        <strong>Base de datos PostgreSQL (Neon):</strong> almacenamiento de cuentas, favoritos, reseñas y catálogo, en
+        infraestructura de nube utilizada por el servidor.
+      </li>
+      <li>
+        <strong>Google Gemini y xAI Grok:</strong> servicios de inteligencia artificial que utiliza el asistente Mictlan.
+        Gemini genera las respuestas y Grok se emplea como respaldo si el primero no está disponible. Reciben el mensaje,
+        el contexto de la conversación y, cuando se envía, la ubicación aproximada para generar la respuesta. Las llaves de
+        acceso a estos servicios se mantienen en el servidor y no dentro de la aplicación.
+      </li>
+      <li>
+        <strong>Gmail (SMTP de Google):</strong> envío de los correos transaccionales de la aplicación, como el código
+        de recuperación de contraseña.
       </li>
       <li>
         <strong>Cloudinary:</strong> almacenamiento y entrega de las imágenes del catálogo, cargadas mediante funciones
@@ -225,8 +302,16 @@
     <h2>8. Conservación de la información</h2>
     <ul>
       <li>
-        <strong>Cuenta y favoritos:</strong> se conservan mientras la cuenta permanezca activa. Al eliminar la cuenta, se
-        eliminan los datos personales asociados.
+        <strong>Cuenta, favoritos y reseñas:</strong> se conservan mientras la cuenta permanezca activa. Al eliminar la
+        cuenta, se eliminan los datos personales asociados.
+      </li>
+      <li>
+        <strong>Códigos de recuperación de contraseña:</strong> tienen vigencia limitada y dejan de ser válidos al usarse
+        o al vencer.
+      </li>
+      <li>
+        <strong>Progreso y preferencias en el dispositivo:</strong> permanecen en el dispositivo hasta que la persona
+        usuaria cierre sesión, borre los datos de la aplicación o la desinstale.
       </li>
       <li>
         <strong>Mensajes de soporte:</strong> se conservan durante el tiempo necesario para atender la consulta y dar
@@ -251,7 +336,7 @@
     <h2>9. Eliminación de cuentas y datos</h2>
     <p>
       Cualquier persona usuaria puede solicitar en cualquier momento la eliminación de su cuenta de MXGuide y de los datos
-      personales asociados a ella. El procedimiento es el siguiente:
+      personales asociados a ella, incluidas las cuentas creadas con Google. El procedimiento es el siguiente:
     </p>
     <ol>
       <li>
@@ -267,14 +352,19 @@
       </li>
       <li>
         <strong>Eliminación:</strong> una vez verificada la solicitud, se eliminan la cuenta y los datos asociados (nombre,
-        correo electrónico, contraseña procesada mediante hash, lugares favoritos y demás información vinculada a la
-        cuenta).
+        correo electrónico, contraseña procesada mediante hash, lugares favoritos, calificaciones y reseñas, y demás
+        información vinculada a la cuenta).
       </li>
       <li>
         <strong>Confirmación:</strong> el resultado se comunica por correo electrónico dentro de los plazos previstos por
         la legislación aplicable.
       </li>
     </ol>
+    <p>
+      Los datos que la aplicación guarda únicamente en el dispositivo (progreso, insignias y preferencias) se eliminan al
+      cerrar sesión, al borrar los datos de la aplicación o al desinstalarla. Para retirar el acceso de MXGuide a una
+      cuenta de Google, la persona usuaria también puede hacerlo desde la configuración de su cuenta de Google.
+    </p>
     <p>
       Si existen excepciones de conservación justificadas conforme a la normativa aplicable, se informarán a la persona
       titular en la respuesta a su solicitud.
@@ -320,9 +410,8 @@
       inicio de este documento.
     </p>
     <p>
-      Antes de habilitar nuevas funciones que traten datos personales, como las reseñas públicas o las notificaciones de
-      proximidad, se actualizará esta política y se informará a las personas usuarias mediante el sitio web de soporte y,
-      cuando corresponda, dentro de la aplicación.
+      Antes de habilitar nuevas funciones que traten datos personales, se actualizará esta política y se informará a las
+      personas usuarias mediante el sitio web de soporte y, cuando corresponda, dentro de la aplicación.
     </p>
   </section>
 
@@ -341,7 +430,7 @@
     </main>
     <footer class="foot">
       <p>MXGuide · México en tus manos · Proyecto escolar, UTP</p>
-      <p><a href="../delete-account/">Eliminar mi cuenta</a></p>
+      <p><a href="../delete-account/eliminacion_cuenta.html">Eliminar mi cuenta</a></p>
     </footer>
   </div>
 </body>
